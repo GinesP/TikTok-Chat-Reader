@@ -42,7 +42,7 @@ function connect() {
         viewerCount = 0
         likeCount = 0
         diamondsCount = 0
-        addImage(state.roomInfo)
+        addImage(state)
         updateRoomStats()
       })
       .catch((errorMessage) => {
@@ -92,7 +92,9 @@ function addImage(data) {
     container.find('div').slice(0, 200).remove()
   }
 
-  container.append(`<img class="miniprofilepicture" src="${data}">`)
+  container.append(
+    `<img  width="250" src="${data.roomInfo.owner.avatar_large.url_list[0]}">`
+  )
 }
 
 function addChatItem(color, data, text, summarize) {
