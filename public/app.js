@@ -35,13 +35,14 @@ function connect() {
       })
       .then((state) => {
         $('#stateText').text(
-          `Connected to roomiId ${state.roomInfo.stream_url.rtmp_pull_url}`
+          `Connected to roomId ${state.roomInfo.stream_url.rtmp_pull_url}`
         )
 
         // reset stats
         viewerCount = 0
         likeCount = 0
         diamondsCount = 0
+        addImage(state.roomInfo)
         updateRoomStats()
       })
       .catch((errorMessage) => {
@@ -81,6 +82,19 @@ function isPendingStreak(data) {
 /**
  * Add a new message to the chat container
  */
+function addImage(data) {
+  console.log(data)
+  let container = location.href.includes('obs.html')
+    ? $('.eventcontainer')
+    : $('.chatcontainer')
+
+  if (container.find('div').length > 500) {
+    container.find('div').slice(0, 200).remove()
+  }
+
+  container.append(`<img class="miniprofilepicture" src="${data}">`)
+}
+
 function addChatItem(color, data, text, summarize) {
   let container = location.href.includes('obs.html')
     ? $('.eventcontainer')
