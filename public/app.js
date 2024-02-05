@@ -234,7 +234,7 @@ connection.on('gift', (data) => {
 
   if (window.settings.showGifts === '0') return
 
-  addGiftItem(data)
+  //   addGiftItem(data)
 })
 
 // share, follow
