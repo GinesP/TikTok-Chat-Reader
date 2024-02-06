@@ -1,6 +1,8 @@
 body {
     font-family:Arial, Helvetica, sans-serif;
     min-width: 800px;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.733);
 }
 
 h1 {
@@ -81,4 +83,11 @@ a {
     height: 50px;
     width: 50px;
     margin-right: 10px;
+    text-wrap: wrap;
+}
+
+.streamurl {
+    font-size: small;
+    max-width: 500px;
+
 }
