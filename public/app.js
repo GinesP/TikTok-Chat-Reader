@@ -37,6 +37,7 @@ function connect() {
         $('#stateText').text(
           `Connected to roomId ${state.roomInfo.stream_url.rtmp_pull_url}`
         )
+        $('#streamUrl').val(state.roomInfo.stream_url.rtmp_pull_url)
 
         // reset stats
         viewerCount = 0
@@ -63,6 +64,15 @@ function connect() {
 // Prevent Cross site scripting (XSS)
 function sanitize(text) {
   return text.replace(/</g, '&lt;')
+}
+
+function copyClipBoard() {
+  var copyText = document.getElementById('streamUrl')
+  console.log(copyText)
+  copyText.select()
+  copyText.setSelectionRange(0, 99999)
+  navigator.clipboard.writeText(copyText.value)
+  alert('Copied the text: ' + copyText.value)
 }
 
 function updateRoomStats() {
