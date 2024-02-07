@@ -110,8 +110,10 @@ function addImage(data) {
 
   let img = document.createElement('img')
   img.src = data.roomInfo.owner.avatar_large.url_list[0]
+  img.className = 'profileimg'
   img.id = 'profileimg'
-  img.width = 250
+  // img.width = 250
+
   document.getElementById('profileImage').appendChild(img)
 
   // container.append(
