@@ -72,7 +72,7 @@ function copyClipBoard() {
   copyText.select()
   copyText.setSelectionRange(0, 99999)
   navigator.clipboard.writeText(copyText.value)
-  alert('Copied the text: ' + copyText.value)
+  // alert('Copied the text: ' + copyText.value)
 }
 
 function updateRoomStats() {
@@ -101,10 +101,26 @@ function addImage(data) {
   if (container.find('div').length > 500) {
     container.find('div').slice(0, 200).remove()
   }
+  console.log(container)
+  // $('.chatcontainer').appendchild(
+  //   `<img  width="250" src="${data.roomInfo.owner.avatar_large.url_list[0]}">`
+  // )
+  const element = document.getElementById('profileimg')
+  if (element) element.remove()
 
-  container.append(
-    `<img  width="250" src="${data.roomInfo.owner.avatar_large.url_list[0]}">`
-  )
+  let img = document.createElement('img')
+  img.src = data.roomInfo.owner.avatar_large.url_list[0]
+  img.id = 'profileimg'
+  img.width = 250
+  document.getElementById('profileImage').appendChild(img)
+
+  // container.append(
+  //   `<img  width="250" src="${data.roomInfo.owner.avatar_large.url_list[0]}">`
+  // )
+  // container.insertAdjacentHTML(
+  //   'afterbegin',
+  //   `<img  width="250" src="${data.roomInfo.owner.avatar_large.url_list[0]}">`
+  // )
 }
 
 function addChatItem(color, data, text, summarize) {
