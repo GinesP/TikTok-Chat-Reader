@@ -39,6 +39,10 @@ function connect() {
         )
         $('#streamUrl').val(state.roomInfo.stream_url.rtmp_pull_url)
 
+        document.title =
+          state.roomInfo.owner.display_id + '-' + state.roomInfo.stream_id
+        document.color = '#A37C7C'
+
         // reset stats
         viewerCount = 0
         likeCount = 0
