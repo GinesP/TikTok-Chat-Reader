@@ -119,6 +119,10 @@ function addImage(data) {
   // img.width = 250
 
   document.getElementById('profileImage').appendChild(img)
+  const body = document.getElementsByTagName('body')[0]
+  body.style.backgroundImage = `url(${data.roomInfo.owner.avatar_large.url_list[0]})`
+  body.style.backgroundSize = 'cover'
+  body.style.backdropFilter = 'blur(50px)'
 
   // container.append(
   //   `<img  width="250" src="${data.roomInfo.owner.avatar_large.url_list[0]}">`
